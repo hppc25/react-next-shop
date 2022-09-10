@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head";
 import { GetStaticPaths, GetStaticProps } from "next"
 import Image from "next/future/image";
 import Stripe from "stripe";
@@ -41,6 +42,10 @@ export default function Product({ product }: ProductProps) {
   }
   
   return (
+    <>
+    <Head>
+      <title>{product.name} | Next Shop</title>
+    </Head>
     <ProductContainer>
       <ImageContainer>
         <Image src={product.imageUrl} width={520} height={480} alt="" />
@@ -57,6 +62,7 @@ export default function Product({ product }: ProductProps) {
         </button>
       </ProductDetails>
     </ProductContainer>
+    </>
   )
 }
 
